@@ -1,0 +1,11 @@
+echo 
+read -p "Introduce un nombre de usuario: " usuario
+
+repe=`cat usuarios.txt | grep $usuario | wc -l`
+
+if [ $repe -eq 0 ]
+    then
+        echo "El nombre de usuario ($usuario) no existe."
+    else
+        echo "El usuario $usuario se ha logueado $repe veces."
+    fi

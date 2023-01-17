@@ -1,0 +1,23 @@
+
+#!/bin/bash
+
+read -p "Introduce un mes: " mes
+read -p "Introduce un dia: " dia
+
+info=$dia.$mes
+
+coincidencias=`cat usuarios.txt | grep $info | wc -l`
+
+if [ $coincidencias -eq 0 ]
+    then
+        echo "En la informacion seleccionada no hay connexiones."
+    else
+        echo "Usuarios connectados el $dia de $mes:"
+        
+        for i in `seq 1 $coincidencias`
+        do
+            user=`cat usuarios.txt|grep $info| head -n$i | tail -1| awk '{print $1}'`
+            echo "$user"
+        done
+
+    fi

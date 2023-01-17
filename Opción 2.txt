@@ -1,0 +1,20 @@
+#!/bin/bash
+
+read -p "Introduce un mes: " mes
+
+repeMes=`cat usuarios.txt | grep $mes | wc -l`
+
+
+if [ $repeMes -eq 0 ]
+    then
+        echo "No hay conexiones en el mes de $mes."
+    else
+        echo "Dias del mes $mes y conexiones: "
+        
+        for i in `seq 1 $repeMes`
+        do
+        dia=`cat usuarios.txt|grep $mes| head -n$i | tail -1| awk '{print $2}'`
+        echo "$dia"
+        done
+
+    fi

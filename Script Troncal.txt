@@ -1,0 +1,36 @@
+#!/bin/bash
+opcion=0
+
+while [ $opcion -ne "5" ]
+do
+    echo ""
+    echo "-------------MENU DE OPCIONES------------------"
+    echo "OPCIÓN 1: BUSQUEDA DE NOMBRE DE CONNEXIONES POR NOMBRE"
+    echo "OPCIÓN 2: BUSQUEDA DE CONNEXIONES POR MES"
+    echo "OPCIÓN 3: BUSQUEDA DE CONNEXIONES POR FECHA"
+    echo "OPCIÓN 4: CONSULTAR ULTIMA CONNEXION"
+    echo "OPCIÓN 5: SALIDA DEL PROGRAMA"
+    read -p "Seleccionar una opción (1..5): " opcion
+    echo "----------------------------------------------"
+    echo " "
+
+    case $opcion in 
+    "1")
+    ./op1.sh
+    ;;
+    "2")
+    ./op2.sh
+    ;;
+    "3")
+    ./op3.sh
+    ;;
+    "4")
+    ./op4.sh
+    ;;
+    "5")
+    echo "Cerrando programa."
+    break
+    ;;
+    esac
+
+done
